@@ -1,0 +1,49 @@
+.footer {
+    position: relative;
+    padding: 6rem 2rem;
+    background-position: top;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    .logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+            width: 70px;
+            margin: 0 10px;
+
+        }
+
+        a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: white;
+            font-size: 40px;
+        }
+    }
+
+    .footer__content__menus {
+        margin-top: 50px;
+        display: flex;
+
+        .footer__content__menu {
+            width: 33%;
+            text-align: center;
+
+            a {
+                text-decoration: none;
+                color: white;
+                font-size: 30px;
+                display: block;
+
+                &:hover{
+                    color: #ff0000;
+                }
+            }
+        }
+
+    }
+
+}
