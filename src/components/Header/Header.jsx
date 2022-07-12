@@ -30,8 +30,8 @@ const Header = () => {
         </div>
         <ul className="header-nav list-unstyled d-flex">
           <li className="nav-items"><Link to="/">Home</Link></li>
-          <li className="nav-items"><Link to="/">Movies</Link></li>
-          <li className="nav-items"><Link to="/">TV Series</Link></li>
+          <li className="nav-items"><Link to="/movies">Movies</Link></li>
+          <li className="nav-items"><Link to="/tvseries">TV Series</Link></li>
         </ul>
       </div>
     </header >

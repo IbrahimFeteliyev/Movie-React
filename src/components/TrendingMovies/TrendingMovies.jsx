@@ -21,14 +21,21 @@ const TrendingMovies = () => {
         dispatch(getMovieAction())
     }, [])
 
+        
+    
     console.log(getMovie);
 
     return (
 
         <>
+
             <section className='tendingmovie-section'>
                 <div className="container">
-                    <h2>Trending TV Series</h2>
+                    <div className="title-button">
+                        <h2>Trending Movies</h2>
+                        <Link to="/movies"><button>View More</button></Link>
+                    </div>
+
                     <Swiper
                         // install Swiper modules
                         modules={[Navigation, Pagination, Scrollbar, A11y]}
@@ -39,15 +46,18 @@ const TrendingMovies = () => {
                     >
                         {
                             getMovie &&
-                            getMovie.filter(x => x.categoryName === "TV Series").map(movie => (
+                            getMovie.filter(x => x.categoryName === "Movie").map(movie => (
                                 <SwiperSlide key={movie.id}>
                                     <div className="movie-box">
                                         <div className="movie-poster">
                                             <img src={movie.posterImage} alt="" />
-                                            <Link to="/">
-                                                <button className='btn undefined'>
+
+                                            <button className='btn undefined'>
+                                                <Link to={'/detail/' + movie.id}>
                                                     <PlayArrowIcon />
-                                                </button></Link>
+                                                </Link>
+
+                                            </button>
                                             <div className="black-poster">
 
                                             </div>
@@ -68,7 +78,10 @@ const TrendingMovies = () => {
 
             <section className='tendingmovie-section'>
                 <div className="container">
-                    <h2>Trending Movies</h2>
+                    <div className="title-button">
+                        <h2>Trending TV Series</h2>
+                        <Link to="/movies"><button>View More</button></Link>
+                    </div>
                     <Swiper
                         // install Swiper modules
                         modules={[Navigation, Pagination, Scrollbar, A11y]}
@@ -79,15 +92,16 @@ const TrendingMovies = () => {
                     >
                         {
                             getMovie &&
-                            getMovie.filter(x => x.categoryName === "Movies").map(movie => (
+                            getMovie.filter(x => x.categoryName === "TvSerie").map(movie => (
                                 <SwiperSlide key={movie.id}>
                                     <div className="movie-box">
                                         <div className="movie-poster">
                                             <img src={movie.posterImage} alt="" />
-                                            <Link to="/">
-                                                <button className='btn undefined'>
+                                            <button className='btn undefined'>
+                                                <Link to={'/detail/' + movie.id}>
                                                     <PlayArrowIcon />
-                                                </button></Link>
+                                                </Link>
+                                            </button>
                                             <div className="black-poster">
 
                                             </div>

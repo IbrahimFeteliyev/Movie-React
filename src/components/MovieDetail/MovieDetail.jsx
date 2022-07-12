@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useMemo } from 'react'
 import { useParams } from 'react-router-dom'
 import { BASE_URL } from '../../api/Config'
-import './productdetail.scss'
+import './moviedetail.scss'
 
 
 
@@ -30,7 +30,7 @@ function ProductDetail() {
       return movie.videoUrl.map((item, index) => (
         <div key={index} className="movie-content my-5">
           <h4 className='movie-name'>{movie.videoName[index]}</h4>
-          <iframe width="100%" height="818" src={item} title={movie.videoName[index]} frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+          <iframe width="100%" height="818" src={item} title={movie.videoName[index]} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
       ))
     } else {
@@ -42,17 +42,18 @@ function ProductDetail() {
     if (Object.keys(movie).length) {
       return movie.castPhotos.map((item, index) => (
         <div className="col-lg-2">
-        <div key={index} className="cast">
-          <img src={item} alt="" />
-          <p>{movie.castNames[index]}</p>
+          <div key={index} className="cast">
+            <img src={item} alt="" />
+            <p>{movie.castNames[index]}</p>
+          </div>
         </div>
-      </div>
       ))
     } else {
       return null
     }
   }, [movie])
 
+  console.log(movie.genreNames);
 
   return (
     <>
@@ -70,9 +71,14 @@ function ProductDetail() {
                   <div className="text">
                     <h2 className="name">{movie.name}</h2>
                     <div className="genres">
-                      <span className="genres-item">{movie.categoryName}</span>
-                      <span className="genres-item">Adventure</span>
-                      <span className="genres-item">Action</span>
+                      {
+                        movie.genreNames &&
+                        movie.genreNames.map((item, key) => (
+                          <span key={key} className="genres-item">{item}</span>
+                        ))
+                      }
+
+
                     </div>
                     <p className="description">{movie.description}</p>
 
@@ -82,9 +88,9 @@ function ProductDetail() {
 
                   <div className="casts">
                     <div className="d-flex">
-                      
-                     {movieCastJSX}
-                      
+
+                      {movieCastJSX}
+
                     </div>
 
                   </div>

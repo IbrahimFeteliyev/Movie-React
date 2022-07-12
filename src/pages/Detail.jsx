@@ -1,9 +1,9 @@
 import React from 'react'
-import ProductDetail from '../components/ProductDetail/ProductDetail'
+import MovieDetail from '../components/MovieDetail/MovieDetail'
 
 const Detail = () => {
   return (
-    <ProductDetail/>
+    <MovieDetail/>
   )
 }
 

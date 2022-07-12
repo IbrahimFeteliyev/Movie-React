@@ -21,7 +21,6 @@ const HeaderSlide = () => {
     SwiperCore.use([Autoplay]);
 
 
-
     return (
 
         <div>
@@ -38,7 +37,7 @@ const HeaderSlide = () => {
                 {
 
                     getMovie &&
-                    getMovie.map(movie => (
+                    getMovie.filter(x => x.isSlider === true).map(movie => (
                         <SwiperSlide>
                             <section style={{ backgroundImage: `url(${movie.backgroundImage})` }} key={movie.id} className="headerSlide">
                                 <div className="boxes">
@@ -55,7 +54,7 @@ const HeaderSlide = () => {
                                                             <button className='btn undefined'>Watch now</button>
                                                         </Link>
 
-                                                        <button className='btn btn-outline undefined'>Watch trailer</button>
+                                                        {/* <button className='btn btn-outline undefined'>Watch trailer</button> */}
                                                     </div>
                                                 </div>
                                             </div>
